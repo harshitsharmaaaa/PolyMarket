@@ -51,6 +51,8 @@ model Position {
   type      PositionType
   user      User     @relation(fields: [userId], references: [id])
   market    Market   @relation(fields: [marketId], references: [id])
+  qty       Int
+  @@unique([userId,marketId,type])
 }
 
 model OrderHistory {
